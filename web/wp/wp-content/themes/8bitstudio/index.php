@@ -16,28 +16,24 @@
 
 <div>Home</div>
 
- <?php echo do_shortcode('[external_data]'); ?>
+ <!-- <?php echo do_shortcode('[external_data]'); ?> -->
 <?php $list = do_shortcode('[external_data]');
  ?>
-<?php $value = 10; ?>
 
-<!--  <?php if (isset($_POST['btn_amout'])) {
-     var_dump($list);
-     fetch_api_8b($value);
+
+<?php if (isset($_POST['update_list'])) {
+     fetch_api_8b(10);
  }
 
- ?> -->
+?>
 
+<?php echo $list;
 
- <form  method="post">
-    <input type="submit" value="Update" name="btn_amout">
-</form>
+?>
 
-<!-- <form action="<?php echo plugin_dir_path(); ?>/process.php" method="post">
-    <input type="text" name="keyName">
-    <input type="submit" value="Update">
-</form> -->
-
+<form method="post">
+    <input type="submit" value="Plus d\'articles" name="update_list">
+</form> 
 
 
 

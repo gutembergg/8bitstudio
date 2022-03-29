@@ -31,19 +31,14 @@ if (!defined('ABSPATH')) {
             return 'Error: '.$error_message;
         }
 
-        $amount_array = [];
-        array_push($amount_array, $amount);
+        $int_value = intval($amount);
 
-        var_dump($amount_array);
-
-        $skip = 10;
+        $skip = 10 + $int_value;
         $formated_response = json_decode(wp_remote_retrieve_body($response));
         $results = array_slice($formated_response, 0, $skip);
+        $list_size = count($results);
 
-        /*  $amount = count($results) + 10;
-         $results = array_slice($results, 0, $amount);
-         var_dump($amount); */
-
+        //return
         return build_html_8b($results);
     }
 
@@ -67,8 +62,6 @@ if (!defined('ABSPATH')) {
         }
 
         $html .= '</table>';
-
-        $html .= '<form method="post"> <input type="submit" name="btn_api" value="Plus d\'articles"></form>';
 
         return $html;
     }
