@@ -7,8 +7,9 @@ web/app/uploads/*
 !web/app/uploads/.gitkeep
 
 # WordPress
-web/wp
-!web/app/wp/wp-content/themes/8bitstudio/*
+web/wp/wp-admin
+web/wp/wp-includes
+
 web/.htaccess
 
 # Logs
