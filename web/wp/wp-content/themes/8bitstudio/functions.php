@@ -33,12 +33,13 @@ if (!defined('ABSPATH')) {
 
         $int_value = intval($amount);
 
+        //En construction
         $skip = 10 + $int_value;
         $formated_response = json_decode(wp_remote_retrieve_body($response));
         $results = array_slice($formated_response, 0, $skip);
         $list_size = count($results);
+        /////////////////////////////////
 
-        //return
         return build_html_8b($results);
     }
 
