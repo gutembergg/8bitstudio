@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * The main template file.
  *
  * This is the most generic template file in a WordPress theme
@@ -8,32 +8,15 @@
  * E.g., it puts together the home page when no home.php file exists.
  *
  * @see https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @since Twenty Nineteen 1.0
+ * @since 8bitstudio 1.0.0
  */
+if (!defined('ABSPATH')) {
+    exit;
+}
 
- get_header();
-?>
-
-<div>Home</div>
-
- <!-- <?php echo do_shortcode('[external_data]'); ?> -->
-<?php $list = do_shortcode('[external_data]');
- ?>
-
-
-<?php if (isset($_POST['update_list'])) {
-     fetch_api_8b(10);
+ function setup_config()
+ {
+     wp_enqueue_script('js-file', get_template_directory_uri().'/js/main.js');
  }
 
-?>
-
-<?php echo $list;
-
-?>
-
-<form method="post">
-    <input type="submit" value="Plus d\'articles" name="update_list">
-</form> 
-
-
-
+ add_action('wp_enqueue_scripts', 'setup_config');
